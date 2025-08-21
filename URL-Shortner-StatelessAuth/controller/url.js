@@ -2,7 +2,7 @@ const URL = require('../models/url');
 const shortid = require("shortid");
 
 
-async function generateNewURL(req,res) {
+async function generateNewURL(req, res) {
     
     const body = req.body;
     

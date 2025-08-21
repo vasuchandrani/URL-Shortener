@@ -1,11 +1,16 @@
 const express = require('express');
-const { create } = require('../models/url');
+const URL = require('../models/url');
 
 const router = express.Router();
 
 router.get('/', async (req, res) =>{
     
-    if (!req.user) return res.render('login');
+    // console.log(req.user);
+
+    if (!req.user) {
+        // console.log("rendering login")
+        return res.redirect('/login');
+    }
 
     const allurls = await URL.find({ createdBy: req.user._id });
 
@@ -14,11 +19,11 @@ router.get('/', async (req, res) =>{
     });
 })
 
-router.get('/signup', (req,res)=>{
+router.get('/signup', (req, res)=>{
     return res.render('signup');
 })
 
-router.get('/login', (req,res)=>{
+router.get('/login', (req, res)=>{
     return res.render('login');
 })
 

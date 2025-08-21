@@ -13,7 +13,7 @@
 <body>
     <h1>URL Shortner</h1>
     <% if (locals.id) { %>
-        <p>URL Generated: https://localhost:8001/url/<%= id %></p>
+        <p>URL Generated: http://localhost:8001/url/<%= id %></p>
     <% } %>
 
     <div>
@@ -33,10 +33,10 @@
                     <th>Clicks</th>
                 </thead>
                 <tbody>
-                    <% urls.forEach(url => { %>
+                    <% urls.forEach((url, index) => { %>
                         <tr>
                             <td><%= index + 1 %></td>
-                            <td><%= url.ShortId %></td>
+                            <td><%= url.shortId %></td>
                             <td><%= url.redirectURL %></td>
                             <td><%= url.visitHistory.length %></td>
                         </tr>
